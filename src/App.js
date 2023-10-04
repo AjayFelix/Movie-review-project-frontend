@@ -1,6 +1,9 @@
 import "./App.css";
 import http from "./api/http-common";
 import { useState, useEffect } from "react";
+import Layout from "./components/Layout";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./components/home/Home";
 
 function App() {
   const [movies, Setmovies] = useState();
@@ -21,7 +24,16 @@ function App() {
     getMovies();
   }, []);
 
-  return <div className="App"></div>;
+  const router = createBrowserRouter([
+    { path: "/", element: <Layout /> },
+    { path: "/home", element: <Home movies={movies} /> },
+  ]);
+
+  return (
+    <div className="App">
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
 export default App;
