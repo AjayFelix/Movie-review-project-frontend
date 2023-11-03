@@ -1,0 +1,27 @@
+.review {
+  display: flex;
+  flex-direction: column;
+  padding: 2%;
+}
+
+.form-label {
+  font-weight: bolder;
+}
+
+.input-area {
+  margin-top: 1%;
+  width: 60%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 10%;
+  background-color: transparent;
+  color: white;
+  line-height: 0.5;
+  outline: none;
+}
+
+.submit-btn {
+  margin-top: 2%;
+  width: 10%;
+}

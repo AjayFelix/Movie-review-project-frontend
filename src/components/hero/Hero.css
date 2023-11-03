@@ -28,6 +28,10 @@
     ),
     var(--img);
 }
+.movie-card:hover .img-card:hover {
+  transform: scale(1.02);
+  transition: 0.25s all ease-in-out;
+}
 .movie-detail {
   position: absolute;
   top: 200px;
@@ -70,6 +74,12 @@
   .movie-detail {
     flex-direction: column;
     align-items: center;
-    top: 20px;
+    top: 30px;
+  }
+  .movie-title {
+    margin-top: 5%;
+  }
+  .play-button-icon-container {
+    margin-left: 83%;
   }
 }

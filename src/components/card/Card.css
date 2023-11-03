@@ -1,0 +1,16 @@
+.card-container {
+  background-color: black;
+}
+
+.card-poster {
+  aspect-ratio: 5 / 8;
+  width: clamp(130px, 20vw, 250px);
+  border: 1px solid gold;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-poster > img {
+  height: 100%;
+  width: 100%;
+}

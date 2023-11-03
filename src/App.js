@@ -1,5 +1,4 @@
 import "./App.css";
-import http from "./api/http-common";
 import { useState, useEffect } from "react";
 import Layout from "./components/Layout";
 // import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -7,13 +6,15 @@ import Home from "./components/home/Home";
 import Header from "./components/header/Header";
 import { Routes, Route } from "react-router-dom";
 import Trailer from "./components/trailer/Trailer";
+import MovieReviewForm from "./components/moviereviewForm/MovieReviewForm";
+import MovieService from "./api/MovieServices";
 
 function App() {
   const [movies, Setmovies] = useState();
 
   const getMovies = async () => {
     try {
-      const response = await http.get("/api/rrcritics/movie/allmovies");
+      const response = await MovieService.getallmovies();
 
       console.log(response.data);
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/" element={<Layout movies={movies} />} />
         <Route path="/" element={<Home movies={movies} />} />
         <Route path="/trailer/:ytTrailerId" element={<Trailer />} />
+        <Route path="/moviepage/:title" element={<MovieReviewForm />} />
       </Routes>
     </div>
   );

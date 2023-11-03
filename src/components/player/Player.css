@@ -1,0 +1,5 @@
+.one-player {
+  aspect-ratio: 16 / 9;
+  width: clamp(300px, 50vw, 740px) !important;
+  height: clamp(210px, 31.25vw, 440px) !important;
+}

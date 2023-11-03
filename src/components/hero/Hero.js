@@ -1,3 +1,4 @@
+import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { Paper } from "@mui/material";
 import "./Hero.css";
@@ -19,12 +20,18 @@ const Hero = ({ movies }) => {
               <div className="movie-card-container">
                 <div
                   className="movie-card"
-                  style={{ "--img": `url(${movie.backdrops[0]})` }}
+                  style={{ "--img": `url(${movie.backdrops[4]})` }}
                 >
                   <div className="movie-detail">
-                    <div className="movie-poster">
-                      <img src={movie.poster} alt="" />
-                    </div>
+                    <Link to={`/moviepage/${movie.title}`}>
+                      <div className="movie-poster">
+                        <img
+                          className="img-card"
+                          src={movie.poster}
+                          alt={`movie poster of ${movie.title}`}
+                        />
+                      </div>
+                    </Link>
                     <div className="movie-title">
                       <h4>{movie.title}</h4>
                     </div>
