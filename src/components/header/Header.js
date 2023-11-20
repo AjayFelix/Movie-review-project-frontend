@@ -4,11 +4,13 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { faClapperboard } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
 
 const Header = () => {
+  const email = localStorage.getItem("email");
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg" style={{ width: "100vw" }}>
       <Container fluid>
@@ -31,10 +33,28 @@ const Header = () => {
               Watch List
             </NavLink>
           </Nav>
-          <Button variant="outline-info" className="me-2">
-            Login
-          </Button>
-          <Button variant="outline-info">Register</Button>
+          {email ? (
+            // If user is logged in
+            <Link to="/logout">
+              <Button variant="outline-info" className="me-2">
+                Logout
+              </Button>
+            </Link>
+          ) : (
+            // If user is not logged in
+            <>
+              <Link to="/login">
+                <Button variant="outline-info" className="me-2">
+                  Login
+                </Button>
+              </Link>
+              <Link to="/Register">
+                <Button variant="outline-info" className="me-2">
+                  Register
+                </Button>
+              </Link>
+            </>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

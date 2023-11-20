@@ -1,0 +1,66 @@
+body {
+  height: 100%;
+  background-color: #222d32;
+  font-family: "Roboto", sans-serif;
+  margin: 0; /* Add margin reset */
+}
+
+.global-container {
+  height: 100%;
+  display: flex;
+  margin-top: 75px;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  padding-top: 10px;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.signup-form {
+  width: 380px;
+  height: 450px;
+  margin: 20px;
+  background: #1a2226 !important;
+  border-radius: 10px !important;
+  color: #0db8de !important;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background-color: #1a2226;
+  border: 2px solid #0db8de;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  color: white !important;
+  padding: 10px;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+
+  background: #1a2226;
+}
+
+.card-title {
+  font-weight: 900 !important;
+  padding-top: 20px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.signup {
+  display: flex;
+  justify-content: center;
+}
+.signup a {
+  text-decoration: none;
+  color: white; /* Set the desired text color for the link */
+  margin-left: 6px;
+}

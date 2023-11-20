@@ -8,15 +8,23 @@ import { Routes, Route } from "react-router-dom";
 import Trailer from "./components/trailer/Trailer";
 import MovieReviewForm from "./components/moviereviewForm/MovieReviewForm";
 import MovieService from "./api/MovieServices";
+import SigninPage from "./components/signinPage/SigninPage";
+import LoginPage from "./components/loginPage/LoginPage";
+import Logout from "./components/logout/Logout";
 
 function App() {
   const [movies, Setmovies] = useState();
+  const [username, setUsername] = useState("");
+  const [authorities, setAuthorities] = useState("");
+
+  useEffect(() => {
+    setUsername(localStorage.getItem("username"));
+    setAuthorities(localStorage.getItem("authorities"));
+  }, []);
 
   const getMovies = async () => {
     try {
       const response = await MovieService.getallmovies();
-
-      console.log(response.data);
 
       Setmovies(response.data);
     } catch (err) {
@@ -42,6 +50,22 @@ function App() {
         <Route path="/" element={<Home movies={movies} />} />
         <Route path="/trailer/:ytTrailerId" element={<Trailer />} />
         <Route path="/moviepage/:title" element={<MovieReviewForm />} />
+        <Route path="/Register" element={<SigninPage />} />
+        <Route
+          path="/login"
+          element={
+            <LoginPage
+              setUsername={setUsername}
+              setAuthorities={setAuthorities}
+            />
+          }
+        />
+        <Route
+          path="/logout"
+          element={
+            <Logout setUsername={setUsername} setAuthorities={setAuthorities} />
+          }
+        />
       </Routes>
     </div>
   );

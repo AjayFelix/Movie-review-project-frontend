@@ -7,6 +7,7 @@ import "./MovieReviewForm.css";
 import Genres from "../genres/Genres";
 import Reviews from "../reviews/Reviews";
 import ReviewList from "../reviewList/ReviewList";
+import MovieInfo from "../movieInfo/MovieInfo";
 function MovieReviewForm() {
   const { title } = useParams();
   const [movie, setMovie] = useState({});
@@ -49,6 +50,7 @@ function MovieReviewForm() {
         <Genres movie={movie} />
         <span className="descirption-container">
           <p className="description">{movie.description}</p>
+          <MovieInfo movie={movie} />
         </span>
       </div>
       <div className="review-container">

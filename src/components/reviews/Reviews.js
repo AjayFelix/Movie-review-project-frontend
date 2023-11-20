@@ -16,6 +16,8 @@ const Reviews = ({ movie }) => {
       };
 
       if (body != "") {
+        const token = localStorage.token;
+        // console.log(token);
         const response = await reviewServices.addReview(reviewData);
         console.log(reviewData);
         if (response.status === 200) {

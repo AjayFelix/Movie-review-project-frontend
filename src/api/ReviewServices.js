@@ -1,10 +1,15 @@
 import http from "./http-common";
 
-const addReview = (review) => {
-  return http.post("/review/createreview", review);
+const addReview = (review, JWTtoken) => {
+  return http.post("/review/user/createreview", review, {
+    headers: {
+      Authorization: "Bearer " + JSON.parse(JWTtoken),
+    },
+  });
 };
+
 const getReviewBody = (reviewId) => {
-  return http.post(`/review/getReview/${reviewId}`);
+  return http.get(`/review/getReview/${reviewId}`);
 };
 const reviewServices = {
   addReview,
