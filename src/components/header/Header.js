@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faVideoSlash } from "@fortawesome/free-solid-svg-icons";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
@@ -7,17 +6,16 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link, NavLink } from "react-router-dom";
 import { faClapperboard } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
+import Search from "../search/Search";
 
-const Header = () => {
+const Header = ({ movies }) => {
   const email = localStorage.getItem("email");
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg" style={{ width: "100vw" }}>
       <Container fluid>
         <Navbar.Brand href="/" style={{ color: "gold" }}>
-          {/* <FontAwesomeIcon icon={faVideoSlash} /> */}
-          <FontAwesomeIcon icon={faClapperboard} />
-          RR CRITICS
+          <FontAwesomeIcon icon={faClapperboard} /> RR CRITICS
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -33,6 +31,10 @@ const Header = () => {
               Watch List
             </NavLink>
           </Nav>
+          <div className="searchBar ">
+            <Search movies={movies} />
+          </div>
+
           {email ? (
             // If user is logged in
             <Link to="/logout">
@@ -49,9 +51,7 @@ const Header = () => {
                 </Button>
               </Link>
               <Link to="/Register">
-                <Button variant="outline-info" className="me-2">
-                  Register
-                </Button>
+                <Button variant="outline-info">Register</Button>
               </Link>
             </>
           )}

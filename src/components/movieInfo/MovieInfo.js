@@ -20,7 +20,7 @@ const MovieInfo = ({ movie }) => {
           <span> No writers found</span>
         )}
       </p>
-      <hr className="horizontal-line"></hr>
+      <hr />
       <p>
         Actors :{" "}
         {Array.isArray(movie.actors) ? (

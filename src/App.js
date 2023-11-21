@@ -11,6 +11,7 @@ import MovieService from "./api/MovieServices";
 import SigninPage from "./components/signinPage/SigninPage";
 import LoginPage from "./components/loginPage/LoginPage";
 import Logout from "./components/logout/Logout";
+import Search from "./components/search/Search";
 
 function App() {
   const [movies, Setmovies] = useState();
@@ -43,7 +44,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header movies={movies} />
       {/* <RouterProvider router={router} /> */}
       <Routes>
         <Route path="/" element={<Layout movies={movies} />} />

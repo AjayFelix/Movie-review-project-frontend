@@ -33,11 +33,6 @@ function MovieReviewForm() {
           {new Date(movie.releaseDate).getFullYear()} - {movie.duration}
         </p>
       </div>
-
-      <div className="review-page-rating-container">
-        {/* Add your rating component here */}
-      </div>
-
       <div className="review-page-content-container">
         <div className="review-page-card-container">
           <Card movie={movie} />

@@ -32,6 +32,7 @@
 }
 .review-container {
   margin-left: 120px;
+  margin-right: 150px;
 }
 
 @media screen and (max-width: 768px) {

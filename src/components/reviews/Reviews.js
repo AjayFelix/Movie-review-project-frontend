@@ -17,8 +17,8 @@ const Reviews = ({ movie }) => {
 
       if (body != "") {
         const token = localStorage.token;
-        // console.log(token);
-        const response = await reviewServices.addReview(reviewData);
+        console.log(token);
+        const response = await reviewServices.addReview(reviewData, token);
         console.log(reviewData);
         if (response.status === 200) {
           alert("Added successfully");
@@ -47,6 +47,7 @@ const Reviews = ({ movie }) => {
         onChange={handleChange}
         className="input-area"
         placeholder="Enter your review"
+        
       ></textarea>
       <Button variant="outline-info" className="submit-btn" onClick={addReview}>
         Submit

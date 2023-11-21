@@ -13,7 +13,7 @@ const ReviewList = ({ movie }) => {
         <p>
           {reviewIds.map((body, index) => (
             <span key={index}>
-              {body.body} <hr />
+              {body.body} <hr style={{ width: "100%" }} />
             </span>
           ))}
         </p>
