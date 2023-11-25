@@ -4,7 +4,6 @@ import SearchSharpIcon from "@mui/icons-material/SearchSharp";
 import { Link } from "react-router-dom";
 
 const Search = ({ movies }) => {
-  console.log(movies);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [action, setAction] = useState("notClicked");
 

@@ -10,6 +10,7 @@ import Search from "../search/Search";
 
 const Header = ({ movies }) => {
   const email = localStorage.getItem("email");
+  const authorities = localStorage.getItem("authorities");
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg" style={{ width: "100vw" }}>
@@ -27,9 +28,20 @@ const Header = ({ movies }) => {
             <NavLink className="nav-link" to="/">
               Home
             </NavLink>
-            <NavLink className="nav-link" to="/watchList">
-              Watch List
-            </NavLink>
+            {authorities === "USER" ? (
+              <NavLink className="nav-link" to="/watchList">
+                Watch List
+              </NavLink>
+            ) : (
+              <div></div>
+            )}
+            {authorities === "ADMIN" ? (
+              <NavLink className="nav-link admin" to="/createMovie">
+                Upload-Movies
+              </NavLink>
+            ) : (
+              <div></div>
+            )}
           </Nav>
           <div className="searchBar ">
             <Search movies={movies} />

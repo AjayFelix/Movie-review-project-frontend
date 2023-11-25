@@ -6,12 +6,13 @@ import Home from "./components/home/Home";
 import Header from "./components/header/Header";
 import { Routes, Route } from "react-router-dom";
 import Trailer from "./components/trailer/Trailer";
-import MovieReviewForm from "./components/moviereviewForm/MovieReviewForm";
+import MovieReviewForm from "./pages/moviereviewForm/MovieReviewForm";
 import MovieService from "./api/MovieServices";
-import SigninPage from "./components/signinPage/SigninPage";
-import LoginPage from "./components/loginPage/LoginPage";
+import SigninPage from "./pages/signinPage/SigninPage";
+import LoginPage from "./pages/loginPage/LoginPage";
 import Logout from "./components/logout/Logout";
-import Search from "./components/search/Search";
+import CreateMovie from "./pages/createMovie/CreateMovie";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [movies, Setmovies] = useState();
@@ -37,21 +38,16 @@ function App() {
     getMovies();
   }, []);
 
-  // const router = createBrowserRouter([
-  //   { path: "/", element: <Layout /> },
-  //   { path: "/home", element: <Home movies={movies} /> },
-  // ]);
-
   return (
     <div className="App">
       <Header movies={movies} />
-      {/* <RouterProvider router={router} /> */}
       <Routes>
         <Route path="/" element={<Layout movies={movies} />} />
         <Route path="/" element={<Home movies={movies} />} />
         <Route path="/trailer/:ytTrailerId" element={<Trailer />} />
         <Route path="/moviepage/:title" element={<MovieReviewForm />} />
         <Route path="/Register" element={<SigninPage />} />
+        <Route path="/createMovie" element={<CreateMovie />} />
         <Route
           path="/login"
           element={
@@ -68,6 +64,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 }

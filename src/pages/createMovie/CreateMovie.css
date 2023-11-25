@@ -1,0 +1,73 @@
+body {
+  height: 100%;
+
+  z-index: 2;
+
+  font-family: "Roboto", sans-serif;
+}
+
+.global-container {
+  height: 100%;
+  display: flex;
+  margin-top: 75px;
+  align-items: center;
+  justify-content: center;
+}
+
+.form {
+  padding-top: 10px;
+  font-size: 14px;
+  margin-top: 30px;
+}
+.form-group1,
+.form-group2 {
+  display: flex;
+  gap: 30px;
+}
+.label-director {
+  position: relative;
+  left: 325px;
+}
+.label-duration {
+  position: relative;
+  left: 175px;
+}
+.label-date {
+  position: relative;
+  left: 350px;
+}
+.createMovie-form {
+  width: 700px;
+  height: 450px;
+  margin: 20px;
+  background: black !important;
+  border: 2px solid white !important;
+  border-radius: 25px !important;
+  color: white !important;
+}
+input[type="text"]:focus {
+  background-color: #1a2226;
+  border: 2px solid white;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  color: white;
+  padding: 10px;
+  outline: none;
+}
+
+.card-title {
+  font-weight: 900;
+  padding-top: 20px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.signup a {
+  text-decoration: none;
+  color: white; /* Set the desired text color for the link */
+  margin-left: 6px;
+}

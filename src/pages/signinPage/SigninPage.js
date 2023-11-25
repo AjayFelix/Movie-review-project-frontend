@@ -3,6 +3,7 @@ import "./SigninPage.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import AuthenticationService from "../../api/AuthenticationService";
+import Swal from "sweetalert2";
 
 const SigninPage = () => {
   let navigate = useNavigate();
@@ -26,10 +27,14 @@ const SigninPage = () => {
       createUser(formValues);
     }
   };
-  const createUser = (data) => {
-    AuthenticationService.createUser(data)
-      .then((response) => {
-        console.log(response.data);
+  const createUser = async (data) => {
+    await AuthenticationService.createUser(data)
+      .then(() => {
+        Swal.fire({
+          title: "Account creacted",
+          text: "Pleace login with you user details",
+          icon: "success",
+        });
         navigate("/login");
       })
       .catch((e) => {

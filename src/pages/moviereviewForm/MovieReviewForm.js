@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieService from "../../api/MovieServices";
-import Card from "../card/Card";
-import Player from "../player/Player";
+import Card from "../../components/card/Card";
+import Player from "../../components/player/Player";
 import "./MovieReviewForm.css";
-import Genres from "../genres/Genres";
-import Reviews from "../reviews/Reviews";
-import ReviewList from "../reviewList/ReviewList";
-import MovieInfo from "../movieInfo/MovieInfo";
+import Genres from "../../components/genres/Genres";
+import Reviews from "../../components/reviews/Reviews";
+import MovieInfo from "../../components/movieInfo/MovieInfo";
 function MovieReviewForm() {
   const { title } = useParams();
   const [movie, setMovie] = useState({});
@@ -50,9 +49,6 @@ function MovieReviewForm() {
       </div>
       <div className="review-container">
         <Reviews movie={movie} />
-        <div>
-          <ReviewList movie={movie} />
-        </div>
       </div>
     </main>
   );
