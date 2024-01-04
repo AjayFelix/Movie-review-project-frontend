@@ -1,13 +1,13 @@
-import http from "./http-common";
+import httpCommon from "./http-common";
 
 const createUser = (newUserDetails) => {
-  return http.post("/auth/public/register", newUserDetails);
+  return httpCommon.http.post("/auth/public/register", newUserDetails);
 };
 const loginUser = (loginUserDetails) => {
-  return http.post("/auth/public/login", loginUserDetails);
+  return httpCommon.http.post("/auth/public/login", loginUserDetails);
 };
 const logoutUser = () => {
-  return http.get("/auth/public/logout");
+  return httpCommon.http.get("/auth/public/logout");
 };
 const AuthenticationService = {
   createUser,

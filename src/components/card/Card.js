@@ -3,7 +3,7 @@ import "./Card.css";
 
 const Card = ({ movie }) => {
   if (movie && movie.poster) {
-    const posterUrl = `https://image.tmdb.org/t/p/w500/${movie.poster.substring(
+    const posterUrl = `https://www.themoviedb.org/t/p/original/${movie.poster.substring(
       movie.poster.length - 31
     )}`;
 

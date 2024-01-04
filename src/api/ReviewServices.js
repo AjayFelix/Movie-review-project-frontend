@@ -1,11 +1,11 @@
-import http from "./http-common";
+import httpCommon from "./http-common";
 
 const addReview = (review) => {
-  return http.post("/review/user/createreview", review);
+  return httpCommon.httpPrivate.post("/review/user/createreview", review);
 };
 
 const getReviewBody = (reviewId) => {
-  return http.get(`/review/getReview/${reviewId}`);
+  return httpCommon.http.get(`/review/getReview/${reviewId}`);
 };
 const reviewServices = {
   addReview,
