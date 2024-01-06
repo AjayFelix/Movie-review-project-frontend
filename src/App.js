@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import Layout from "./components/Layout";
-// import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/home/Home";
 import Header from "./components/header/Header";
 import { Routes, Route } from "react-router-dom";
@@ -19,11 +18,12 @@ function App() {
   const [username, setUsername] = useState("");
   const [authorities, setAuthorities] = useState("");
 
+  // useEffect to retrieve username and authorities from localStorage on component mount
   useEffect(() => {
     setUsername(localStorage.getItem("username"));
     setAuthorities(localStorage.getItem("authorities"));
   }, []);
-
+  // Function to fetch movies from MovieService API
   const getMovies = async () => {
     try {
       const response = await MovieService.getallmovies();
@@ -33,11 +33,11 @@ function App() {
       console.log(err);
     }
   };
-
+  // useEffect to fetch movies on component mount
   useEffect(() => {
     getMovies();
   }, []);
-
+  // Return JSX
   return (
     <div className="App">
       <Header movies={movies} />
