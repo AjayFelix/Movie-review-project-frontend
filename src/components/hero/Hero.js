@@ -7,6 +7,7 @@ import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const Hero = ({ movies }) => {
+  // If movies is not defined or not an array, return null
   if (!movies || !Array.isArray(movies)) {
     return null;
   }

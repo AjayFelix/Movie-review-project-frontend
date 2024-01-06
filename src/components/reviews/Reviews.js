@@ -4,13 +4,15 @@ import reviewServices from "../../api/ReviewServices";
 import { Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 const Reviews = ({ movie }) => {
+  // Extract reviewIds from the movie object or set to an empty array
   const reviewIds = movie ? movie.reviewIds || [] : [];
+  // State variables
   const [body, setBody] = useState("");
   const [reviewBodies, setReviewBodies] = useState([]);
-
+  // Retrieve authorities and imdbId from localStorage and movie object
   const authorities = localStorage.getItem("authorities");
   const imdbId = movie.imdbId;
-
+  // Function to add a review
   const addReview = async () => {
     try {
       if (authorities && authorities.length > 0) {
@@ -47,7 +49,7 @@ const Reviews = ({ movie }) => {
       console.error(err);
     }
   };
-
+  // Function to fetch reviews
   const fetchReviews = async () => {
     try {
       const fetchedReviews = await reviewServices.getReviews(imdbId);
@@ -56,11 +58,12 @@ const Reviews = ({ movie }) => {
       console.error(err);
     }
   };
-
+  // useEffect to fetch reviews when the component mounts or when imdbId changes
   useEffect(() => {
     fetchReviews();
   }, [imdbId]);
 
+  // Function to handle change in the textarea
   const handleChange = (e) => {
     setBody(e.target.value);
   };

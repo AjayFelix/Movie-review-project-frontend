@@ -1,7 +1,7 @@
 import React from "react";
 import ReactPlayer from "react-player";
 import "./Player.css";
-
+// Construct the YouTube trailer URL using the provided movie's trailerLink
 const Player = ({ movie }) => {
   const trailerUrl = movie.trailerLink
     ? `https://www.youtube.com/watch?v=${movie.trailerLink.substring(
